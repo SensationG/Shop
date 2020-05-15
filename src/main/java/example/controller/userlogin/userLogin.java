@@ -57,4 +57,21 @@ public class userLogin {
         }
         return null;
     }
+
+    @RequestMapping("/getUser2")
+    //@RequestBody 绑定ajax传来的json字串
+    public @ResponseBody user getUserDataByAjax2(@RequestBody user user, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=gb2312");
+        if(user==null){
+            System.out.println("传输失败，对象为空");
+        }else {
+            if("hhw".equals(user.getName())){
+                System.out.println("验证成功");
+                return user;
+            }else {
+                return null;
+            }
+        }
+        return null;
+    }
 }
